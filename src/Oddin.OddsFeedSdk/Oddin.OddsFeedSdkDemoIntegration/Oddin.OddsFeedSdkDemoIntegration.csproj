@@ -5,6 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Oddin.OddsFeedSdkDemoIntegration</AssemblyName>
     <RootNamespace>Oddin.OddsFeedSdkDemoIntegration</RootNamespace>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
