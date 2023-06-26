@@ -11,6 +11,9 @@
     <Version>1.1.19</Version>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <IsPackable>True</IsPackable>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Flurl" Version="3.0.2" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
