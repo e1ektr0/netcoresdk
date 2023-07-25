@@ -7,9 +7,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <LangVersion>9.0</LangVersion>
     <PackageId>oddingg</PackageId>
-    <AssemblyVersion>1.1.19.0</AssemblyVersion>
-    <FileVersion>1.1.19.0</FileVersion>
-    <Version>1.1.19</Version>
+    <AssemblyVersion>1.1.20.0</AssemblyVersion>
+    <FileVersion>1.1.20.0</FileVersion>
+    <Version>1.1.20</Version>
     <ProjectUrl>https://github.com/e1ektr0/netcoresdk</ProjectUrl>
   </PropertyGroup>
 
