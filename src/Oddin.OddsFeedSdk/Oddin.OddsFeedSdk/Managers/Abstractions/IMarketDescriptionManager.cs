@@ -2,15 +2,16 @@ using System.Collections.Generic;
 using System.Globalization;
 using Oddin.OddsFeedSdk.API.Entities.Abstractions;
 
-namespace Oddin.OddsFeedSdk.Managers.Abstractions
+namespace Oddin.OddsFeedSdk.Managers.Abstractions;
+
+public interface IMarketDescriptionManager
 {
-    public interface IMarketDescriptionManager
-    {
-        IEnumerable<IMarketDescription> GetMarketDescriptions(CultureInfo culture = null);
+    IEnumerable<IMarketDescription> GetMarketDescriptions(CultureInfo culture = null);
 
-        void DeleteVariantMarketDescriptionFromCache(int marketId, string variantValue);
+    IMarketDescription GetMarketDescriptionByIdAndVariant(int marketId, string? variant);
 
-        // Get MarketVoidReasons from cache
-        IEnumerable<IMarketVoidReason> GetMarketVoidReasons();
-    }
+    void DeleteVariantMarketDescriptionFromCache(int marketId, string variantValue);
+
+    // Get MarketVoidReasons from cache
+    IEnumerable<IMarketVoidReason> GetMarketVoidReasons();
 }

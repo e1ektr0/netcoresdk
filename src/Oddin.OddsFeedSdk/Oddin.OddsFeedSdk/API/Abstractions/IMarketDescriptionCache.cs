@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using System.Globalization;
 using Oddin.OddsFeedSdk.API.Entities;
 
-namespace Oddin.OddsFeedSdk.API.Abstractions
+namespace Oddin.OddsFeedSdk.API.Abstractions;
+
+internal interface IMarketDescriptionCache
 {
-    internal interface IMarketDescriptionCache
-    {
-        IEnumerable<CompositeKey> GetMarketDescriptions(CultureInfo culture);
+    IReadOnlyDictionary<CompositeKey, LocalizedMarketDescription> LocalizedMarketDescriptions(CultureInfo culture);
 
-        LocalizedMarketDescription GetMarketDescription(int marketId, string variant, IEnumerable<CultureInfo> cultures);
+    LocalizedMarketDescription
+        GetMarketDescriptionById(int marketId, string variant, IEnumerable<CultureInfo> cultures);
 
-        LocalizedMarketDescription GetMarketDescription(CompositeKey key);
+    LocalizedMarketDescription GetMarketDescription(CompositeKey key);
 
-        void ClearCacheItem(int marketId, string variant);
-    }
+    void ClearCacheItem(int marketId, string variant);
 }

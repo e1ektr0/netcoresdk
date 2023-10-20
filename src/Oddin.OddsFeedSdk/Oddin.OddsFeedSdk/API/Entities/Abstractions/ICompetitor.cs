@@ -2,38 +2,48 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
+using Oddin.OddsFeedSdk.Common;
 
-namespace Oddin.OddsFeedSdk.API.Entities.Abstractions
+namespace Oddin.OddsFeedSdk.API.Entities.Abstractions;
+
+public interface ICompetitor
 {
-    public interface ICompetitor : IPlayer
-    {
-        IReadOnlyDictionary<CultureInfo, string> Countries { get; }
+    URN Id { get; }
 
-        IReadOnlyDictionary<CultureInfo, string> Abbreviations { get; }
+    [Obsolete("Do not use this field, it will be removed in future.")]
+    URN RefId { get; }
 
-        bool? IsVirtual { get; }
+    IReadOnlyDictionary<CultureInfo, string> Names { get; }
 
-        string GetCountry(CultureInfo culture);
+    IReadOnlyDictionary<CultureInfo, string> Countries { get; }
 
-        string GetAbbreviation(CultureInfo culture);
+    IReadOnlyDictionary<CultureInfo, string> Abbreviations { get; }
 
-        string CountryCode { get; }
+    bool? IsVirtual { get; }
 
-        string Underage { get; }
+    string CountryCode { get; }
 
-        string ShortName => null;
+    string Underage { get; }
 
-        string IconPath { get; }
+    string ShortName => null;
 
-        // TODO: Delete in next iteration of updates
-        [Obsolete("GetSportAsync() is deprecated, please use GetSports() instead. Method GetSportAsync() will be removed in the future.")]
-        Task<ISport> GetSportAsync();
+    string IconPath { get; }
 
-        IEnumerable<ISport> GetSports();
-    }
+    string GetName(CultureInfo culture);
 
-    public interface ITeamCompetitor : ICompetitor
-    {
-        string Qualifier { get; }
-    }
+    string GetCountry(CultureInfo culture);
+
+    string GetAbbreviation(CultureInfo culture);
+
+    // TODO: Delete in next iteration of updates
+    [Obsolete(
+        "GetSportAsync() is deprecated, please use GetSports() instead. Method GetSportAsync() will be removed in the future.")]
+    Task<ISport> GetSportAsync();
+
+    IEnumerable<ISport> GetSports();
+}
+
+public interface ITeamCompetitor : ICompetitor
+{
+    string Qualifier { get; }
 }

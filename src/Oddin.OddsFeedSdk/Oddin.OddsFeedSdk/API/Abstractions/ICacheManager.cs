@@ -1,19 +1,20 @@
-namespace Oddin.OddsFeedSdk.API.Abstractions
+namespace Oddin.OddsFeedSdk.API.Abstractions;
+
+internal interface ICacheManager
 {
-    internal interface ICacheManager
-    {
-        ISportDataCache SportDataCache { get; }
+    ISportDataCache SportDataCache { get; }
 
-        ITournamentsCache TournamentsCache { get; }
+    ITournamentsCache TournamentsCache { get; }
 
-        ICompetitorCache CompetitorCache { get; }
+    ICompetitorCache CompetitorCache { get; }
 
-        IMatchCache MatchCache { get; }
+    IPlayerCache PlayerCache { get; }
 
-        ILocalizedStaticDataCache LocalizedStaticDataCache { get; }
+    IMatchCache MatchCache { get; }
 
-        IFixtureCache FixtureCache { get; }
+    ILocalizedStaticDataCache LocalizedStaticDataCache { get; }
 
-        IMarketDescriptionCache MarketDescriptionCache { get; }
-    }
+    IFixtureCache FixtureCache { get; }
+
+    IMarketDescriptionCache MarketDescriptionCache { get; }
 }
